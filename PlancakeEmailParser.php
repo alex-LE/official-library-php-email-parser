@@ -426,7 +426,7 @@ class PlancakeEmailParser
                 }
             } else {  // ($detectedContentType && !$waitingForContentStart)
                 // collecting the actual content until we find the delimiter
-                if (is_array($boundaries)) {
+                if (in_array(rtrim(substr($line, 2), "-"), $boundaries)) {
                     if (in_array($line, $boundaries)) {  // found the delimiter
                         break;
                     }
